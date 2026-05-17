@@ -3,99 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Trabajo de Visual Studio</title>
+    <title>Interface Profesional - Omar</title>
+    <style>
+        /* 1. CONFIGURACIÓN GLOBAL (Box Model) */
+        * {
+            box-sizing: border-box; /* [cite: 101] El tamaño es predecible */
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            display: grid; /* [cite: 293] Activamos Grid para la interfaz */
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer"; /* [cite: 348] Definimos el mapa de la web */
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        /* 2. COMPONENTES DE LA INTERFAZ */
+        header {
+            grid-area: header; /* [cite: 402] */
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        aside {
+            grid-area: sidebar; /* [cite: 402] */
+            background-color: #ffffff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        main {
+            grid-area: main; /* [cite: 402] */
+            padding: 30px;
+        }
+
+        footer {
+            grid-area: footer; /* [cite: 402] */
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 3. BOTONES Y TARJETAS */
+        .btn-primario {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn-primario:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .contenedor-cards {
+            display: flex; /* [cite: 141] Flexbox para distribuir tarjetas */
+            flex-wrap: wrap; /* [cite: 151] Salto de línea si no hay espacio */
+            gap: 20px; /* [cite: 154] Espacio entre items */
+            justify-content: space-around;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 280px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* 4. TABLA MODERNA */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #1e3c72;
+        }
+
+        .badge {
+            background: #e1f5fe;
+            color: #01579b;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Mi Primer Proyecto Web</h1>
-        <p>Este trabajo es para mostrar el uso de etiquetas básicas en HTML.</p>
+        <h1>Panel de Proyecto Web</h1>
+        <p>Integración de CSS Grid, Flexbox y Box Model</p>
     </header>
 
-    <hr>
-    
+    <aside>
+        <h3>Menú</h3>
+        <ul style="list-style: none; margin-top: 15px;">
+            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%;">Inicio</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%; background-color: #6c757d;">Proyectos</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%; background-color: #28a745;">Contacto</a></li>
+        </ul>
+        
+        <hr style="margin: 20px 0;">
+        
+        <h4>Conceptos Aplicados</h4>
+        <p style="font-size: 0.85rem; color: #666;">
+            • <strong>Grid:</strong> Para el layout general (2D).<br>
+            • <strong>Flexbox:</strong> Para las tarjetas (1D).<br>
+            • <strong>Border-box:</strong> Control total de medidas.
+        </p>
+    </aside>
+
     <main>
         <section>
-            <h2>Sección de Textos</h2>
-            <p>Este es un párrafo normal.</p>
-            <p>Aquí uso <strong>negrita para resaltar</strong> y aquí <em>cursiva para dar énfasis</em>.</p>
-            <p>También puedo <mark>subrayar con color</mark> algo importante.</p>
-        </section>
-
-        <section>
-            <h3>Mis Pasatiempos (Lista desordenada)</h3>
-            <ul>
-                <li>Coleccionar figuras</li>
-                <li>Ver anime</li>
-                <li>Programar en Visual Studio</li>
-            </ul>
-
-            <h3>Pasos para mi tarea (Lista ordenada)</h3>
-            <ol>
-                <li>Abrir Visual Studio Code</li>
-                <li>Escribir el código HTML</li>
-                <li>Subirlo a mi Github</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Mis Imágenes</h2>
-            <p><mark>Colocar imágenes es sencillo en HTML5.</mark> Aquí te muestro las que he subido:</p>
+            <h2>Explorador de Imágenes (Flexbox)</h2>
+            <p style="margin-bottom: 20px;">Cada tarjeta usa <code>flex-direction: column</code> internamente.</p>
             
-            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                <figure>
-                    <img src="assets/images/Casa Porta.png" alt="Casa Porta" width="200">
-                    <figcaption>Casa Porta</figcaption>
-                </figure>
-                
-                <figure>
-                    <img src="assets/images/Hotel BoulevardSe abre en una ventan..." alt="Hotel Boulevard" width="200">
-                    <figcaption>Hotel Boulevard</figcaption>
-                </figure>
-                
-                <figure>
-                    <img src="assets/images/Larq'a Park RoomsSe.png" alt="Larq'a Park Rooms" width="200">
-                    <figcaption>Larq'a Park Rooms</figcaption>
-                </figure>
+            <div class="contenedor-cards">
+                <div class="card">
+                    <img src="assets/images/Casa Porta.png" alt="Casa Porta">
+                    <div class="card-body">
+                        <h5>Casa Porta</h5>
+                        <p>Diseño de interiores moderno.</p>
+                        <button class="btn-primario">Ver Detalle</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/Hotel BoulevardSe abre en una ventan..." alt="Hotel Boulevard">
+                    <div class="card-body">
+                        <h5>Hotel Boulevard</h5>
+                        <p>Vista exterior y accesos.</p>
+                        <button class="btn-primario">Ver Detalle</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/Larq'a Park RoomsSe.png" alt="Larq'a Park Rooms">
+                    <div class="card-body">
+                        <h5>Larq'a Park</h5>
+                        <p>Habitaciones ejecutivas.</p>
+                        <button class="btn-primario">Ver Detalle</button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h4>Tabla de Productos</h4>
-            <table style="border-collapse: collapse; border: 1px solid black;">
+        <section style="margin-top: 40px;">
+            <h2>Inventario de Productos</h2>
+            <table>
                 <thead>
                     <tr>
-                        <th style="border: 1px solid black; padding: 5px;">Producto</th>
-                        <th style="border: 1px solid black; padding: 5px;">Material</th>
-                        <th style="border: 1px solid black; padding: 5px;">Precio</th>
+                        <th>Producto</th>
+                        <th>Material</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="border: 1px solid black; padding: 5px;">Llavero</td>
-                        <td style="border: 1px solid black; padding: 5px;">Porcelana Fría</td>
-                        <td style="border: 1px solid black; padding: 5px;">S/ 10</td>
+                        <td>Llavero Personalizado</td>
+                        <td>Porcelana Fría</td>
+                        <td>S/ 10</td>
+                        <td><span class="badge">Disponible</span></td>
                     </tr>
                     <tr>
-                        <td style="border: 1px solid black; padding: 5px;">Figura</td>
-                        <td style="border: 1px solid black; padding: 5px;">Cerámica</td>
-                        <td style="border: 1px solid black; padding: 5px;">S/ 25</td>
+                        <td>Figura de Colección</td>
+                        <td>Cerámica</td>
+                        <td>S/ 25</td>
+                        <td><span class="badge">Disponible</span></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <section>
-            <h4>Banner Animado</h4>
-            <marquee>¡Aprendiendo HTML paso a paso!</marquee>
+        <section style="margin-top: 40px;">
+            <marquee style="background: #fff; padding: 10px; border-radius: 5px; color: #1e3c72; font-weight: bold;">
+                ¡Interfaz profesional creada con éxito usando CSS Grid y Flexbox!
+            </marquee>
         </section>
     </main>
 
-    <hr>
-
     <footer>
-        <p>Página creada por Omar - San Martín de Porres</p>
-        <p>&copy; 2026 Mi primera Web. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Omar - San Martín de Porres | Diseñado con amor por el código.</p>
     </footer>
 
 </body>
