@@ -3,136 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface Profesional - Omar</title>
+    <title>Hotel Luxury - Gestión Profesional</title>
     <style>
-        /* 1. CONFIGURACIÓN GLOBAL (Box Model) */
+        /* CONFIGURACIÓN GLOBAL: Aplicamos border-box a todo para un diseño predecible */
         * {
-            box-sizing: border-box; /* [cite: 101] El tamaño es predecible */
+            box-sizing: border-box; /* Incluye padding y border en el ancho total */
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f0f2f5;
-            color: #333;
-            display: grid; /* [cite: 293] Activamos Grid para la interfaz */
+            background-color: #f0f4f8;
+            color: #2d3436;
+            display: grid; /* Layout bidimensional */
             grid-template-areas: 
                 "header header"
                 "sidebar main"
-                "footer footer"; /* [cite: 348] Definimos el mapa de la web */
-            grid-template-columns: 250px 1fr;
+                "footer footer";
+            grid-template-columns: 260px 1fr;
             grid-template-rows: auto 1fr auto;
             min-height: 100vh;
         }
 
-        /* 2. COMPONENTES DE LA INTERFAZ */
+        /* ÁREAS DEL GRID */
         header {
-            grid-area: header; /* [cite: 402] */
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            grid-area: header;
+            background: linear-gradient(to right, #0984e3, #6c5ce7);
             color: white;
-            padding: 2rem;
+            padding: 25px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         aside {
-            grid-area: sidebar; /* [cite: 402] */
-            background-color: #ffffff;
+            grid-area: sidebar;
+            background: #ffffff;
             padding: 20px;
-            border-right: 1px solid #ddd;
+            border-right: 2px solid #dfe6e9;
         }
 
         main {
-            grid-area: main; /* [cite: 402] */
+            grid-area: main;
             padding: 30px;
         }
 
         footer {
-            grid-area: footer; /* [cite: 402] */
-            background-color: #222;
+            grid-area: footer;
+            background: #2d3436;
             color: white;
             padding: 15px;
             text-align: center;
-            font-size: 0.9rem;
         }
 
-        /* 3. BOTONES Y TARJETAS */
-        .btn-primario {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .btn-primario:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .contenedor-cards {
-            display: flex; /* [cite: 141] Flexbox para distribuir tarjetas */
-            flex-wrap: wrap; /* [cite: 151] Salto de línea si no hay espacio */
-            gap: 20px; /* [cite: 154] Espacio entre items */
-            justify-content: space-around;
-        }
-
-        .card {
+        /* COMPONENTES DE INTERFAZ */
+        .seccion-segmentada {
             background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .contenedor-flex {
+            display: flex; /* Layout unidimensional para tarjetas */
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card-hotel {
+            width: 280px;
+            background: #fff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 280px;
-            transition: 0.3s;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        .card-hotel:hover {
+            transform: translateY(-5px);
         }
 
-        .card img {
+        .card-hotel img {
             width: 100%;
-            height: 200px;
+            height: 160px;
             object-fit: cover;
         }
 
-        .card-body {
+        .card-content {
             padding: 15px;
-            text-align: center;
         }
 
-        /* 4. TABLA MODERNA */
+        .btn-accion {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #00b894;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 12px;
+            border: 1px solid #dfe6e9;
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
-        th {
-            background-color: #f8f9fa;
-            color: #1e3c72;
-        }
+        th { background: #f1f2f6; color: #2d3436; }
 
         .badge {
-            background: #e1f5fe;
-            color: #01579b;
-            padding: 4px 8px;
-            border-radius: 4px;
+            background: #ffeaa7;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
             font-weight: bold;
         }
     </style>
@@ -140,100 +134,109 @@
 <body>
 
     <header>
-        <h1>Panel de Proyecto Web</h1>
-        <p>Integración de CSS Grid, Flexbox y Box Model</p>
+        <h1>Hotel Luxury Management</h1>
+        <p>Panel de Control para Sedes y Disponibilidad</p>
     </header>
 
     <aside>
-        <h3>Menú</h3>
-        <ul style="list-style: none; margin-top: 15px;">
-            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%;">Inicio</a></li>
-            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%; background-color: #6c757d;">Proyectos</a></li>
-            <li style="margin-bottom: 10px;"><a href="#" class="btn-primario" style="width: 100%; background-color: #28a745;">Contacto</a></li>
-        </ul>
-        
-        <hr style="margin: 20px 0;">
-        
-        <h4>Conceptos Aplicados</h4>
-        <p style="font-size: 0.85rem; color: #666;">
-            • <strong>Grid:</strong> Para el layout general (2D).<br>
-            • <strong>Flexbox:</strong> Para las tarjetas (1D).<br>
-            • <strong>Border-box:</strong> Control total de medidas.
+        <h3>Panel de Navegación</h3>
+        <p style="font-size: 0.85em; color: #636e72; margin-top: 5px;">
+            Gestiona tus recursos usando <strong>CSS Grid</strong>[cite: 713].
         </p>
+        <nav style="margin-top: 20px;">
+            <a href="#" class="btn-accion" style="background: #0984e3;">Ver Habitaciones</a>
+            <a href="#" class="btn-accion" style="background: #6c5ce7; margin-top: 10px;">Reportes de Ventas</a>
+            <a href="#" class="btn-accion" style="background: #e17055; margin-top: 10px;">Configuración</a>
+        </nav>
+
+        <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+            <h4>Apartado Histórico</h4>
+            <p style="font-size: 0.8em; color: #b2bec3;">(Tu contenido anterior)</p>
+            <ul style="font-size: 0.85em; margin-top: 10px; padding-left: 15px;">
+                <li>Pasatiempos: Anime, Figuras, Programar.</li>
+                <li>Tarea: Abrir VS Code, Código HTML, Github.</li>
+            </ul>
+        </div>
     </aside>
 
     <main>
-        <section>
-            <h2>Explorador de Imágenes (Flexbox)</h2>
-            <p style="margin-bottom: 20px;">Cada tarjeta usa <code>flex-direction: column</code> internamente.</p>
-            
-            <div class="contenedor-cards">
-                <div class="card">
-                    <img src="assets/images/Casa Porta.png" alt="Casa Porta">
-                    <div class="card-body">
+        <section class="seccion-segmentada">
+            <h2>Nuestras Sedes Principales</h2>
+            <p>Distribución optimizada con <strong>Flexbox</strong> para visualización en tarjetas[cite: 531, 615].</p>
+            <br>
+            <div class="contenedor-flex">
+                <div class="card-hotel">
+                    <img src="assets/images/Casa Porta.png" alt="Sede Casa Porta">
+                    <div class="card-content">
                         <h5>Casa Porta</h5>
-                        <p>Diseño de interiores moderno.</p>
-                        <button class="btn-primario">Ver Detalle</button>
+                        <p><small>Sede Ejecutiva - Miraflores</small></p>
+                        <a href="#" class="btn-accion">Gestionar</a>
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="assets/images/Hotel BoulevardSe abre en una ventan..." alt="Hotel Boulevard">
-                    <div class="card-body">
-                        <h5>Hotel Boulevard</h5>
-                        <p>Vista exterior y accesos.</p>
-                        <button class="btn-primario">Ver Detalle</button>
+                <div class="card-hotel">
+                    <img src="assets/images/hotel civico.png" alt="Hotel Cívico">
+                    <div class="card-content">
+                        <h5>Hotel Cívico</h5>
+                        <p><small>Centro Histórico</small></p>
+                        <a href="#" class="btn-accion">Gestionar</a>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card-hotel">
                     <img src="assets/images/Larq'a Park RoomsSe.png" alt="Larq'a Park Rooms">
-                    <div class="card-body">
-                        <h5>Larq'a Park</h5>
-                        <p>Habitaciones ejecutivas.</p>
-                        <button class="btn-primario">Ver Detalle</button>
+                    <div class="card-content">
+                        <h5>Larq'a Park Rooms</h5>
+                        <p><small>Zona Parque Kennedy</small></p>
+                        <a href="#" class="btn-accion">Gestionar</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="margin-top: 40px;">
-            <h2>Inventario de Productos</h2>
+        <section class="seccion-segmentada">
+            <h2>Estado de Inventario y Servicios</h2>
+            <p>Información técnica sobre productos disponibles en recepción.</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Producto</th>
-                        <th>Material</th>
-                        <th>Precio</th>
+                        <th>Producto / Servicio</th>
+                        <th>Material/Tipo</th>
+                        <th>Tarifa</th>
                         <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Llavero Personalizado</td>
+                        <td>Llavero Souvenir</td>
                         <td>Porcelana Fría</td>
                         <td>S/ 10</td>
-                        <td><span class="badge">Disponible</span></td>
+                        <td><span class="badge">En Stock</span></td>
                     </tr>
                     <tr>
-                        <td>Figura de Colección</td>
+                        <td>Figura Artesanal</td>
                         <td>Cerámica</td>
                         <td>S/ 25</td>
-                        <td><span class="badge">Disponible</span></td>
+                        <td><span class="badge">Pocas Unidades</span></td>
+                    </tr>
+                    <tr>
+                        <td>Upgrade Suite</td>
+                        <td>Servicio VIP</td>
+                        <td>S/ 80</td>
+                        <td><span class="badge" style="background:#55efc4">Disponible</span></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <section style="margin-top: 40px;">
-            <marquee style="background: #fff; padding: 10px; border-radius: 5px; color: #1e3c72; font-weight: bold;">
-                ¡Interfaz profesional creada con éxito usando CSS Grid y Flexbox!
-            </marquee>
+        <section class="seccion-segmentada">
+            <h3>Notas de Operación</h3>
+            <p>Es vital que todos los elementos de la interfaz respeten el <strong>Box Model</strong> para evitar desbordamientos en resoluciones bajas[cite: 429]. El uso de <code>border-box</code> permite que el padding del 20px no altere el tamaño de nuestras tarjetas[cite: 475, 522].</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Omar - San Martín de Porres | Diseñado con amor por el código.</p>
+        <p>&copy; 2026 Omar - San Martín de Porres | Hotel Luxury Management System</p>
     </footer>
 
 </body>
