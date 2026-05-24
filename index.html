@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Luxury - Gestión Profesional</title>
+    <title>Hotel Luxury - Gestión Profesional Avanzada</title>
     <style>
         /* CONFIGURACIÓN GLOBAL: Aplicamos border-box a todo para un diseño predecible */
         * {
@@ -106,6 +106,8 @@
             border-radius: 5px;
             margin-top: 10px;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
 
         table {
@@ -129,6 +131,121 @@
             font-size: 0.8em;
             font-weight: bold;
         }
+
+        /* NUEVAS SECCIONES AÑADIDAS BASADAS EN LA GUÍA DE LABORATORIO */
+        
+        /* 1. Catálogo Avanzado con CSS Grid (auto-fit & minmax) */
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas responsivas automáticas */
+            gap: 22px;
+            margin-top: 15px;
+        }
+
+        .card-servicio {
+            padding: 20px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contenedor-imagen-servicio {
+            height: 140px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2563eb;
+            font-size: 2rem;
+        }
+
+        .card-servicio h3 {
+            margin-bottom: 8px;
+            color: #0984e3;
+        }
+
+        .card-servicio p {
+            font-size: 0.9em;
+            color: #636e72;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        /* 2. Formulario Alineado de Operaciones con Flexbox */
+        .formulario-operaciones {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .campo-formulario {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .campo-formulario label {
+            width: 140px;
+            font-weight: bold;
+            color: #2d3436;
+        }
+
+        .campo-formulario input, 
+        .campo-formulario select, 
+        .campo-formulario textarea {
+            flex: 1; /* Ocupa el espacio restante de la fila */
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            background: #f8fafc;
+            font-size: 0.95em;
+        }
+
+        .campo-formulario input:focus, 
+        .campo-formulario select:focus, 
+        .campo-formulario textarea:focus {
+            border-color: #6c5ce7;
+            background: #fff;
+        }
+
+        .btn-alineado {
+            margin-left: 156px; /* Alineado perfectamente respetando el ancho del label + gap */
+            padding: 12px 24px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-alineado:hover {
+            background: #5b4cc4;
+        }
+
+        /* Adaptación Responsive para el formulario */
+        @media (max-width: 768px) {
+            .campo-formulario {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .campo-formulario label {
+                width: auto;
+            }
+            .btn-alineado {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -141,11 +258,13 @@
     <aside>
         <h3>Panel de Navegación</h3>
         <p style="font-size: 0.85em; color: #636e72; margin-top: 5px;">
-            Gestiona tus recursos usando <strong>CSS Grid</strong>[cite: 713].
+            Gestiona tus recursos usando <strong>CSS Grid</strong>.
         </p>
         <nav style="margin-top: 20px;">
             <a href="#" class="btn-accion" style="background: #0984e3;">Ver Habitaciones</a>
             <a href="#" class="btn-accion" style="background: #6c5ce7; margin-top: 10px;">Reportes de Ventas</a>
+            <a href="#" class="btn-accion" style="background: #00b894; margin-top: 10px;">Catálogo de Servicios</a>
+            <a href="#" class="btn-accion" style="background: #edf2f7; color: #2d3436; margin-top: 10px;">Nuevo Registro</a>
             <a href="#" class="btn-accion" style="background: #e17055; margin-top: 10px;">Configuración</a>
         </nav>
 
@@ -195,6 +314,49 @@
         </section>
 
         <section class="seccion-segmentada">
+            <h2>Catálogo de Experiencias y Servicios VIP</h2>
+            <p>Estructura bidimensional avanzada construida con <strong>CSS Grid</strong> utilizando la propiedad <code>repeat(auto-fit, minmax(260px, 1fr))</code> para un diseño 100% responsivo y automático[cite: 135, 151, 164].</p>
+            
+            <div class="grid-catalogo">
+                <article class="card-servicio">
+                    <div>
+                        <div class="contenedor-imagen-servicio">🏊‍♂️</div>
+                        <h3>Zona de Relajación & Spa</h3>
+                        <p>Acceso libre a la piscina climatizada, sauna finlandesa y masajes terapéuticos personalizados para huéspedes VIP.</p>
+                    </div>
+                    <button class="btn-accion" style="background: #0984e3;">Ver Disponibilidad</button>
+                </article>
+
+                <article class="card-servicio">
+                    <div>
+                        <div class="contenedor-imagen-servicio">🍽️</div>
+                        <h3>Restaurante Gourmet</h3>
+                        <p>Disfruta de una experiencia culinaria única con nuestro menú de degustación criollo e internacional preparado por chefs galardonados.</p>
+                    </div>
+                    <button class="btn-accion" style="background: #0984e3;">Reservar Mesa</button>
+                </article>
+
+                <article class="card-servicio">
+                    <div>
+                        <div class="contenedor-imagen-servicio">🚗</div>
+                        <h3>Traslado Privado</h3>
+                        <p>Servicio exclusivo de transporte ida y vuelta hacia el aeropuerto o tours guiados por las zonas más turísticas de la ciudad.</p>
+                    </div>
+                    <button class="btn-accion" style="background: #0984e3;">Solicitar Auto</button>
+                </article>
+
+                <article class="card-servicio">
+                    <div>
+                        <div class="contenedor-imagen-servicio">🎉</div>
+                        <h3>Salón de Eventos</h3>
+                        <p>Espacios completamente acondicionados y equipados con tecnología audiovisual avanzada para reuniones corporativas, conferencias o celebraciones.</p>
+                    </div>
+                    <button class="btn-accion" style="background: #0984e3;">Cotizar Evento</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccion-segmentada">
             <h2>Estado de Inventario y Servicios</h2>
             <p>Información técnica sobre productos disponibles en recepción.</p>
             <table>
@@ -230,8 +392,46 @@
         </section>
 
         <section class="seccion-segmentada">
+            <h2>Registro Rápido de Check-In</h2>
+            <p>Formulario técnico estructurado usando <strong>Flexbox Unidireccional</strong> (<code>flex-direction: row</code> y <code>flex: 1</code>) para mantener una alineación perfecta de campos e inputs[cite: 113, 115, 130].</p>
+            
+            <form class="formulario-operaciones" action="#" method="POST">
+                <div class="campo-formulario">
+                    <label for="nombre-huesped">Nombre Completo</label>
+                    <input id="nombre-huesped" type="text" placeholder="Ej. Omar Alberto Balvin" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="sede-asignada">Sede de Destino</label>
+                    <select id="sede-asignada" required>
+                        <option value="">Selecciona una sede...</option>
+                        <option value="casa-porta">Casa Porta - Miraflores</option>
+                        <option value="hotel-civico">Hotel Cívico - Centro Histórico</option>
+                        <option value="larqa-park">Larq'a Park Rooms</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="tipo-habitacion">Tipo de Habitación</label>
+                    <select id="tipo-habitacion" required>
+                        <option value="standard">Standard Suite</option>
+                        <option value="double">Double Room</option>
+                        <option value="vip">Upgrade VIP Suite (S/ 80)</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="observaciones">Observaciones</label>
+                    <textarea id="observaciones" rows="3" placeholder="Requerimientos adicionales (Ej. Llavero souvenir de porcelana fría, check-in temprano)..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-alineado">Procesar Registro e Ingreso</button>
+            </form>
+        </section>
+
+        <section class="seccion-segmentada">
             <h3>Notas de Operación</h3>
-            <p>Es vital que todos los elementos de la interfaz respeten el <strong>Box Model</strong> para evitar desbordamientos en resoluciones bajas[cite: 429]. El uso de <code>border-box</code> permite que el padding del 20px no altere el tamaño de nuestras tarjetas[cite: 475, 522].</p>
+            <p>Es vital que todos los elementos de la interfaz respeten el <strong>Box Model</strong> para evitar desbordamientos en resoluciones bajas[cite: 429]. El uso de <code>border-box</code> permite que el padding de 20px no altere el tamaño de nuestras tarjetas[cite: 475, 522].</p>
         </section>
     </main>
 
